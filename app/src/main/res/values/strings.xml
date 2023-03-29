@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Nome</string>
+    <string name="Qual_nome">Qual é o seu nome?</string>
+    <string name="novo">Novo Por Aqui?</string>
+    <string name="limpar">Limpar</string>
+    <string name="Okay">Ok</string>
+    <string name="email">email</string>
+    <string name="senha">senha</string>
+    <string name="login">Login</string>
+    <string name="inserirSenha">Insira a sua senha</string>
+    <string name="inserirEmail">Insira o seu email</string>
+    <string name="confirmarSenha">confirmar Senha</string>
+    <string name="registrar">registrar</string>
+    <string name="ola">bem-vindo(a) %s</string>
+</resources>
