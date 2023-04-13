@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import br.com.fundatec.fundatecheroesti21.R
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,9 +14,9 @@ class LoginActivity : AppCompatActivity() {
         val btLogin = findViewById<Button>(R.id.login)
         supportActionBar?.hide()
         btLogin.setOnClickListener{
-            val intent = Intent(this, Home::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-            finish()
+
         }
 
         val meuTextView = findViewById<TextView>(R.id.novo)
@@ -23,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
         meuTextView.setOnClickListener {
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
-            finish()
+
         }
 
     }
