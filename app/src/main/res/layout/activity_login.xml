@@ -6,7 +6,9 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".login.view.LoginActivity">
+        tools:context=".login.view.LoginActivity"
+        android:background="@color/blue"
+        >
 
         <ImageView
             android:id="@+id/logo"
@@ -67,6 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="40dp"
             android:text="@string/logar"
+            android:backgroundTint="@color/teal_700"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
