@@ -22,4 +22,8 @@
     <string name="inserirSenha">Inserir Senha</string>
     <string name="inserirEmail">Inserir E-mail</string>
     <string name="registrar">Registrar</string>
+    <string name="Description">Description</string>
+    <string name="DataNascimento">Data de Nascimento</string>
+    <string name="idade">Idade</string>
+    <string name="submit">submit</string>
 </resources>
