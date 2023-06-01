@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.fundatec.fundatecheroesti21.R
+import br.com.fundatec.fundatecheroesti21.character.domain.CharacterListAdapter
+import br.com.fundatec.fundatecheroesti21.character.view.CharacterModel
 import br.com.fundatec.fundatecheroesti21.databinding.ActivityHomeBinding
 import br.com.fundatec.fundatecheroesti21.databinding.FragmentCharacterBinding
 
@@ -14,6 +16,12 @@ private const val ARG_PARAM1 = "param1"
 class CharacterFragment : Fragment() {
 
     private lateinit var binding: FragmentCharacterBinding
+
+    private val adapter by lazy { CharacterListAdapter() }
+    private val list = listOf(
+        CharacterModel("Superman"), CharacterModel("Batman"), CharacterModel("Flash")
+    )
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,9 +33,9 @@ class CharacterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        arguments?.let {
-            binding.texview.text = it.getString(ARG_PARAM1)
-        }
+
+        binding.rvList.adapter = adapter
+        adapter.add(list)
     }
 
     companion object {
