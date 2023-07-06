@@ -5,7 +5,6 @@ package br.com.fundatec.fundatecheroesti21.character.domain
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import br.com.fundatec.fundatecheroesti21.character.view.CharacterModel
 import br.com.fundatec.fundatecheroesti21.databinding.CharacterListItemBinding
 
 class CharacterListAdapter : RecyclerView.Adapter<CharacterViewHolder>() {

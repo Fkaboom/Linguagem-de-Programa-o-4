@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/tecnico ti/Desktop/Linguagem-de-Programa-o-4/app/src/main/res/layout/activity_character.xml" value="0.1" />
+        <entry key="..\:/Users/tecnico ti/Desktop/Linguagem-de-Programa-o-4/app/src/main/res/layout/activity_home.xml" value="0.1408514492753623" />
+        <entry key="..\:/Users/tecnico ti/Desktop/Linguagem-de-Programa-o-4/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/tecnico ti/Desktop/Linguagem-de-Programa-o-4/app/src/main/res/layout/activity_profile.xml" value="0.1" />
+        <entry key="..\:/Users/tecnico ti/Desktop/Linguagem-de-Programa-o-4/app/src/main/res/layout/activity_relative_layout.xml" value="0.1" />
+        <entry key="..\:/Users/tecnico ti/Desktop/Linguagem-de-Programa-o-4/app/src/main/res/layout/character_list_item.xml" value="0.1" />
+        <entry key="..\:/Users/tecnico ti/Desktop/Linguagem-de-Programa-o-4/app/src/main/res/layout/fragment_character.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="jbr-11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

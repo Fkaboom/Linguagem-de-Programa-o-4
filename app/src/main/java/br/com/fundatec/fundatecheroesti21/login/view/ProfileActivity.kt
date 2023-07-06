@@ -54,6 +54,7 @@ class ProfileActivity : AppCompatActivity() {
 
 
     }
+
     private fun showLoading() {
         binding.pbLoading.show()
     }
@@ -62,16 +63,19 @@ class ProfileActivity : AppCompatActivity() {
         binding.pbLoading.hide()
         binding.pwd.error = getString(R.string.login_size_password_error_message)
     }
+
     private fun showNameError() {
         binding.pbLoading.hide()
         binding.nome.error = getString(R.string.login_name_error_message)
     }
+
     private fun showHome() {
         binding.pbLoading.hide()
         val intent = Intent(this@ProfileActivity, HomeActivity::class.java)
         startActivity(intent)
         finish()
     }
+
     private fun showSnackError() {
         binding.pbLoading.hide()
         Snackbar.make(binding.root, R.string.login_error_message, Snackbar.LENGTH_LONG).show()
