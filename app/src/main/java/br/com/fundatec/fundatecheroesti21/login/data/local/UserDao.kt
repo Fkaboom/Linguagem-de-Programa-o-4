@@ -11,4 +11,5 @@ interface UserDao {
 
     @Query("SELECT * from  userTable")
     fun getUser(): List<UserEntity>
+    abstract fun getId(): Any
 }
