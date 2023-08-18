@@ -8,6 +8,7 @@ import android.os.Looper
 import androidx.activity.viewModels
 import br.com.fundatec.fundatecheroesti21.R
 import br.com.fundatec.fundatecheroesti21.databinding.ActivitySplashBinding
+import br.com.fundatec.fundatecheroesti21.home.view.HomeActivity
 import br.com.fundatec.fundatecheroesti21.splash.presentation.SplashViewModel
 import br.com.fundatec.fundatecheroesti21.splashScreen.SplashScreenViewState
 import com.google.android.material.snackbar.Snackbar
@@ -40,6 +41,10 @@ class SplashActivity : AppCompatActivity() {
 
     private fun showHome() {
         Snackbar.make(binding.root, R.string.sucess, Snackbar.LENGTH_LONG).show()
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
+        finish()
+
     }
 
     private fun showLogin() {

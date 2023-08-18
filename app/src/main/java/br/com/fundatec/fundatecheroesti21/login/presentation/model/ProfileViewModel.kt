@@ -1,10 +1,11 @@
-package br.com.fundatec.fundatecheroesti21.login.presentation.model
+package br.com.fundatec.fundatecheroesti21.profile.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.fundatec.fundatecheroesti21.login.domain.UserUseCase
+import br.com.fundatec.fundatecheroesti21.login.presentation.model.ProfileViewState
 import kotlinx.coroutines.launch
 import java.util.regex.Pattern
 
@@ -55,6 +56,6 @@ class ProfileViewModel : ViewModel() {
                 viewState.value = ProfileViewState.ShowErrorMessage
             }
         }
+
     }
 }
-
