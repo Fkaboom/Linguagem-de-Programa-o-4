@@ -4,6 +4,7 @@ import android.util.Log
 import br.com.fundatec.fundatecheroesti21.database.FHDatabase
 import br.com.fundatec.fundatecheroesti21.login.data.local.UserEntity
 import br.com.fundatec.fundatecheroesti21.login.data.remote.LoginResponse
+import br.com.fundatec.fundatecheroesti21.login.data.repository.LoginService
 import br.com.fundatec.fundatecheroesti21.network.RetrofitNetworkClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

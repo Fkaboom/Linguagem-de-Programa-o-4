@@ -3,7 +3,6 @@ package br.com.fundatec.fundatecheroesti21.character.data.repository
 import android.util.Log
 import br.com.fundatec.fundatecheroesti21.character.data.CharacterRequest
 import br.com.fundatec.fundatecheroesti21.character.data.CharacterResponse
-import br.com.fundatec.fundatecheroesti21.character.data.local.CharacterModel
 import br.com.fundatec.fundatecheroesti21.character.domain.CharacterModel
 import br.com.fundatec.fundatecheroesti21.database.FHDatabase
 import br.com.fundatec.fundatecheroesti21.network.RetrofitNetworkClient
@@ -27,7 +26,7 @@ class CharacterRepository {
         return withContext(Dispatchers.IO) {
             try {
                 val response = client.createCharacter(
-                    database.userDao().getId(),
+                    database.userDao().getId() as Int,
                     CharacterRequest(
                         characterRequest.name,
                         characterRequest.description,
@@ -59,7 +58,7 @@ class CharacterRepository {
 
     fun getCharacters(): List<CharacterModel> {
         val response: Response<List<CharacterResponse>> =
-            client.getCharacter(database.userDao().getId())
+            client.getCharacter(database.userDao().getId() as Int)
 
         return if (response.isSuccessful) {
             val characterResponseList: List<CharacterResponse> = response.body() ?: emptyList()
@@ -68,3 +67,4 @@ class CharacterRepository {
             emptyList()
         }
     }
+}
