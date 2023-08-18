@@ -26,4 +26,5 @@
     <string name="DataNascimento">Data de Nascimento</string>
     <string name="idade">Idade</string>
     <string name="submit">submit</string>
+    <string name="sucess">sucess</string>
 </resources>

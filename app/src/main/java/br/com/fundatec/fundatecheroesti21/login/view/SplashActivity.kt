@@ -6,19 +6,18 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.activity.viewModels
-import androidx.lifecycle.ViewModel
 import br.com.fundatec.fundatecheroesti21.R
-import br.com.fundatec.fundatecheroesti21.databinding.ActivityProfileBinding
 import br.com.fundatec.fundatecheroesti21.databinding.ActivitySplashBinding
-import br.com.fundatec.fundatecheroesti21.home.view.HomeActivity
-import br.com.fundatec.fundatecheroesti21.login.presentation.model.SplashViewModel
-import br.com.fundatec.fundatecheroesti21.splashScreen.SplashSreenViewState
+import br.com.fundatec.fundatecheroesti21.splash.presentation.SplashViewModel
+import br.com.fundatec.fundatecheroesti21.splashScreen.SplashViewState
+import com.google.android.material.snackbar.Snackbar
 
 class SplashActivity : AppCompatActivity() {
 
 
-private lateinit var binding: ActivitySplashBinding
-private val viewModel: SplashViewModel by viewModels();
+    private lateinit var binding: ActivitySplashBinding
+    private val viewModel: SplashViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -29,18 +28,18 @@ private val viewModel: SplashViewModel by viewModels();
         setContentView(binding.root)
 
     }
-    private fun initializeObserver(){
-        viewModel.state.observe(this){
-                viewState ->
+
+    private fun initializeObserver() {
+        viewModel.state.observe(this) { viewState ->
             when (viewState) {
-                SplashSreenViewState.loadLogin -> showLogin();
-                SplashSreenViewState.sucess -> showSucess();
+                SplashViewState.ShowLogin -> showLogin()
+                SplashViewState.ShowHome -> showHome()
             }
         }
-}
+    }
 
-    private fun showSucess() {
-
+    private fun showHome() {
+        Snackbar.make(binding.root, R.string.sucess, Snackbar.LENGTH_LONG).show()
     }
 
     private fun showLogin() {
@@ -50,6 +49,6 @@ private val viewModel: SplashViewModel by viewModels();
             finish()
         }, 3000)
     }
-    }
+}
 
 

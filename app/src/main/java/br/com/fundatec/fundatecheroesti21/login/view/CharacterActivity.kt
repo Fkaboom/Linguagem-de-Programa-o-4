@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import br.com.fundatec.fundatecheroesti21.databinding.ActivityCharacterBinding
 import br.com.fundatec.fundatecheroesti21.home.view.HomeActivity
+import br.com.fundatec.fundatecheroesti21.login.data.local.UserDao
 
 class CharacterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCharacterBinding
@@ -73,8 +74,11 @@ class CharacterActivity : AppCompatActivity() {
         binding.next.setOnClickListener {
             val intent = Intent(this@CharacterActivity, HomeActivity::class.java)
 
+
             startActivity(intent)
             finish();
         }
+
+
     }
 }
