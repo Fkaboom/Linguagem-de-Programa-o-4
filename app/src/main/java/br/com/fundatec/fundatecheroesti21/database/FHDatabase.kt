@@ -4,6 +4,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import br.com.fundatec.fundatecheroesti21.App
 
 import br.com.fundatec.fundatecheroesti21.database.converters.Converters
 import br.com.fundatec.fundatecheroesti21.login.data.local.UserDao

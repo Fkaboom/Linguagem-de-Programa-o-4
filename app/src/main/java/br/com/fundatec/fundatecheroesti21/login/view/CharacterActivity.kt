@@ -74,6 +74,7 @@ class CharacterActivity : AppCompatActivity() {
             val intent = Intent(this@CharacterActivity, HomeActivity::class.java)
 
             startActivity(intent)
+            finish();
         }
     }
 }
