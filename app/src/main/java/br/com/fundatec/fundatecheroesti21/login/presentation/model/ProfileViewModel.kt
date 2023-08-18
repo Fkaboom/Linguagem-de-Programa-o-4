@@ -3,50 +3,58 @@ package br.com.fundatec.fundatecheroesti21.login.presentation.model
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import br.com.fundatec.fundatecheroesti21.login.domain.UserUseCase
+import kotlinx.coroutines.launch
 import java.util.regex.Pattern
 
 class ProfileViewModel : ViewModel() {
-
+    private val useCase by lazy { UserUseCase() }
     private val viewState = MutableLiveData<ProfileViewState>()
     val state: LiveData<ProfileViewState> = viewState
 
-    fun validateInputs(nome: String?, email: String?, password: String?) {
+    fun validateInputs(name: String?, email: String?, password: String?) {
+        var patternEmail = Pattern.compile("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")
+        var matcherEmail = patternEmail.matcher(email)
+
         viewState.value = ProfileViewState.ShowLoading
-        val pattern = Pattern.compile("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}\$")
-
-        val matcher = pattern.matcher(email)
-
-        if (email.isNullOrBlank() && password.isNullOrBlank() && nome.isNullOrBlank()) {
+        if (email.isNullOrBlank() && password.isNullOrBlank() && name.isNullOrBlank()) {
             viewState.value = ProfileViewState.ShowErrorMessage
             return
         }
-        if (nome.isNullOrBlank()) {
-            viewState.value = ProfileViewState.showNameError
+
+        if (name.isNullOrBlank()) {
+            viewState.value = ProfileViewState.ShowNameError
             return
         }
 
-
-        if (password != null) {
-            if
-                    (password.length > 16 || password.length < 5) {
-                viewState.value = ProfileViewState.ShowPwdErrorMessage
-                return
-
-            };
-
-            if
-                    (matcher.matches() && password.length < 16 && password.length > 5) {
-                viewState.value = ProfileViewState.ShowHomeScreen
-                return
-            };
-
-        } else {
-            viewState.value = ProfileViewState.ShowPwdErrorMessage
+        if (!matcherEmail.matches()) {
+            viewState.value = ProfileViewState.ShowEmailErrorMessage
             return
         }
 
-        viewState.value = ProfileViewState.ShowEmailErrorMessage
-        return
+        if (email.isNullOrBlank()) {
+            viewState.value = ProfileViewState.ShowEmailErrorMessage
+            return
+        }
+
+        if (password.isNullOrBlank()) {
+            viewState.value = ProfileViewState.ShowPasswordErrorMessage
+            return
+        }
+
+        fetchLogin(name, email, password)
+    }
+
+    private fun fetchLogin(name: String, email: String, password: String) {
+        viewModelScope.launch {
+            val isSuccess = useCase.createUser(name = name, email = email, password = password)
+            if (isSuccess) {
+                viewState.value = ProfileViewState.ShowSuccesCreate
+            } else {
+                viewState.value = ProfileViewState.ShowErrorMessage
+            }
+        }
     }
 }
 

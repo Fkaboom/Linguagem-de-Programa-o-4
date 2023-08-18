@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="heroes">
+        <item>Selecione</item>
+        <item>Hero</item>
+        <item>Villain</item>
+    </string-array>
+    <string-array name="universe">
+        <item>Selecione</item>
+        <item>Marvel</item>
+        <item>DC</item>
+    </string-array>
+</resources>

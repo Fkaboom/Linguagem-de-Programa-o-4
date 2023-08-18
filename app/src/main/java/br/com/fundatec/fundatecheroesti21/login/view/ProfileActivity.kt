@@ -3,6 +3,8 @@ package br.com.fundatec.fundatecheroesti21.login.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.activity.viewModels
 import br.com.fundatec.core.hide
 import br.com.fundatec.core.show
@@ -18,62 +20,55 @@ import java.util.regex.Pattern
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
-    private val viewModel: ProfileViewModel by viewModels()
+
+    private val viewModel: ProfileViewModel by viewModels();
+
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile)
-
-        initializeObserver()
-
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.registrar.setOnClickListener() {
+        initializeObserver()
+
+        binding.registrar.setOnClickListener {
             viewModel.validateInputs(
                 password = binding.pwd.text.toString(),
                 email = binding.email.text.toString(),
-                nome = binding.nome.text.toString()
+                name = binding.nome.text.toString(),
             )
         }
-
-
     }
 
     private fun initializeObserver() {
         viewModel.state.observe(this) { viewState ->
             when (viewState) {
-                ProfileViewState.ShowEmailErrorMessage -> showEmailError()
-                ProfileViewState.ShowHomeScreen -> showHome()
-                ProfileViewState.ShowPwdErrorMessage -> showPasswordError()
-                ProfileViewState.ShowLoading -> showLoading()
-                ProfileViewState.showNameError -> showNameError()
+                ProfileViewState.ShowSuccesCreate -> showSuccesCreate()
                 ProfileViewState.ShowErrorMessage -> showSnackError()
+                ProfileViewState.ShowEmailErrorMessage -> showEmailError()
+                ProfileViewState.ShowPasswordErrorMessage -> showPasswordError()
+                ProfileViewState.ShowLoading -> showLoading()
+                ProfileViewState.ShowNameError -> showNameError()
             }
         }
-
-
     }
 
     private fun showLoading() {
         binding.pbLoading.show()
     }
 
-    private fun showPasswordError() {
-        binding.pbLoading.hide()
-        binding.pwd.error = getString(R.string.login_size_password_error_message)
-    }
-
     private fun showNameError() {
         binding.pbLoading.hide()
-        binding.nome.error = getString(R.string.login_name_error_message)
+        binding.nome.error = getString(R.string.register_name_error_message)
     }
 
-    private fun showHome() {
+    private fun showEmailError() {
         binding.pbLoading.hide()
-        val intent = Intent(this@ProfileActivity, HomeActivity::class.java)
-        startActivity(intent)
-        finish()
+        binding.email.error = getString(R.string.register_email_error_message)
+    }
+
+    private fun showPasswordError() {
+        binding.pbLoading.hide()
+        binding.pwd.error = getString(R.string.register_pdw_error_message)
     }
 
     private fun showSnackError() {
@@ -81,9 +76,11 @@ class ProfileActivity : AppCompatActivity() {
         Snackbar.make(binding.root, R.string.login_error_message, Snackbar.LENGTH_LONG).show()
     }
 
-    private fun showEmailError() {
+    private fun showSuccesCreate() {
         binding.pbLoading.hide()
-        binding.email.error = getString(R.string.login_email_error_message)
+        Snackbar.make(binding.root, R.string.register_user_succes, Snackbar.LENGTH_LONG).show()
+        Handler(Looper.getMainLooper()).postDelayed({
+            finish()
+        }, 1000)
     }
-
 }

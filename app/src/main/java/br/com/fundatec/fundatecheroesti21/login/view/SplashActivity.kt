@@ -9,7 +9,7 @@ import androidx.activity.viewModels
 import br.com.fundatec.fundatecheroesti21.R
 import br.com.fundatec.fundatecheroesti21.databinding.ActivitySplashBinding
 import br.com.fundatec.fundatecheroesti21.splash.presentation.SplashViewModel
-import br.com.fundatec.fundatecheroesti21.splashScreen.SplashViewState
+import br.com.fundatec.fundatecheroesti21.splashScreen.SplashScreenViewState
 import com.google.android.material.snackbar.Snackbar
 
 class SplashActivity : AppCompatActivity() {
@@ -32,8 +32,8 @@ class SplashActivity : AppCompatActivity() {
     private fun initializeObserver() {
         viewModel.state.observe(this) { viewState ->
             when (viewState) {
-                SplashViewState.ShowLogin -> showLogin()
-                SplashViewState.ShowHome -> showHome()
+                SplashScreenViewState.ShowLogin -> showLogin()
+                SplashScreenViewState.ShowHome -> showHome()
             }
         }
     }

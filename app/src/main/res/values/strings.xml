@@ -27,4 +27,18 @@
     <string name="idade">Idade</string>
     <string name="submit">submit</string>
     <string name="sucess">sucess</string>
+    <string name="data">data</string>
+    <string name="descricao">descrição</string>
+    <string name="name">nome</string>
+    <string name="insira_a_url_da_imagem">Insira a URL da imagem</string>
+    <string name="register_name_error_message">Nome inválido</string>
+    <string name="register_age_error_message">Idade inválida</string>
+    <string name="register_birthdate_error_message">Data inválida</string>
+    <string name="register_description_error_message">Descrição inválida, não pode estar vazia!</string>
+    <string name="register_email_error_message">E-mail inválido</string>
+    <string name="register_pdw_error_message">Senha inválida</string>
+    <string name="new_character">novo personagem</string>
+    <string name="image_error_message">Precisa ter URL para imagem</string>
+    <string name="login_error2_message">erro</string>
+    <string name="register_user_succes">as</string>
 </resources>

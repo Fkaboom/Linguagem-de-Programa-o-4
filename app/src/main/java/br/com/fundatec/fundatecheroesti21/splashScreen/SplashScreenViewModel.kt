@@ -1,15 +1,14 @@
-package br.com.fundatec.fundatecheroesti21.splash.presentation
+package br.com.fundatec.fundatecheroesti21.splashScreen.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.fundatec.fundatecheroesti21.splash.domain.IsValidCacheUseCase
-
 import br.com.fundatec.fundatecheroesti21.splashScreen.SplashScreenViewState
 import kotlinx.coroutines.launch
 
-class SplashViewModel : ViewModel() {
+class SplashScreenViewModel : ViewModel(){
     private val viewState = MutableLiveData<SplashScreenViewState>()
     val state: LiveData<SplashScreenViewState> = viewState
 
