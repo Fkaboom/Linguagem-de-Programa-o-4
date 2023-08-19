@@ -40,5 +40,5 @@
     <string name="new_character">novo personagem</string>
     <string name="image_error_message">Precisa ter URL para imagem</string>
     <string name="login_error2_message">erro</string>
-    <string name="register_user_succes">as</string>
+    <string name="register_user_succes">usuario registrado com sucesso</string>
 </resources>
