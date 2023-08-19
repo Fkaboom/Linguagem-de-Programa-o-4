@@ -6,14 +6,17 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/cinza"
+        >
+
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/purple_700"
+            android:backgroundTint="@color/vermelho"
             android:elevation="8dp"
             android:textSize="24sp"
             app:layout_constraintTop_toTopOf="parent"
@@ -25,7 +28,7 @@
             android:layout_height="0dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="2"
-            android:layout_margin="16dp"
+            android:layout_margin="20dp"
             tools:listitem="@layout/character_list_item"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
             app:layout_constraintBottom_toTopOf="@+id/bt_new_character"
@@ -38,6 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="@string/new_character"
+            android:backgroundTint="@color/vermelho"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

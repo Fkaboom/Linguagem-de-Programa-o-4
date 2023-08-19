@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".characterRegister.view.CharacterRegisterActivity"
-        android:background="@color/blue"
+        android:background="@color/cinza"
         >
 
         <com.google.android.material.textfield.TextInputLayout
@@ -102,6 +102,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginHorizontal="40dp"
+                android:background="@color/white"
                 android:entries="@array/heroes" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -119,7 +120,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginHorizontal="40dp"
-                android:entries="@array/universe" />
+                android:entries="@array/universe"
+                android:background="@color/white"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -148,6 +150,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="40dp"
             android:layout_marginTop="18dp"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ti_img_hero"
             app:layout_constraintVertical_chainStyle="packed">
@@ -157,6 +160,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="140dp"
+                android:src="@drawable/seta"
+                android:backgroundTint="@color/vermelho"
                 android:importantForAccessibility="no" />
 
         </com.google.android.material.textfield.TextInputLayout>
