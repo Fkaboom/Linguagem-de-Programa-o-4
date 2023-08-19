@@ -1,6 +1,8 @@
 package br.com.fundatec.fundatecheroesti21.database.converters
+
 import androidx.room.TypeConverter
 import java.util.*
+
 class Converters {
 
     @TypeConverter

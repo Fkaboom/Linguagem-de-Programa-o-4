@@ -20,7 +20,7 @@ class HomeViewModel : ViewModel() {
         viewModelScope.launch {
             val list = useCase.getCharacters()
 
-            if(list.isEmpty()){
+            if (list.isEmpty()) {
                 viewState.value = HomeViewState.ShowEmptyList
             } else {
                 viewState.value = HomeViewState.ShowHomeScreen(list)

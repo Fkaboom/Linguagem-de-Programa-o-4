@@ -5,21 +5,21 @@ class UserCache {
     private val users: MutableMap<String, UserEntity> = HashMap()
     private var lastLoginTime: Long = 0
 
-    fun saveUser(email:String,user:UserEntity){
+    fun saveUser(email: String, user: UserEntity) {
         users[email] = user
         lastLoginTime = System.currentTimeMillis()
     }
 
-    fun getUser(email:String):UserEntity?{
+    fun getUser(email: String): UserEntity? {
         return users[email]
     }
 
-    fun cleanCache(){
+    fun cleanCache() {
         users.clear()
         lastLoginTime = 0
     }
 
-    fun isCacheValid() : Boolean{
+    fun isCacheValid(): Boolean {
         val currentTime = System.currentTimeMillis()
         return (currentTime - lastLoginTime) <= 60000
     }

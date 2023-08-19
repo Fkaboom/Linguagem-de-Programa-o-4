@@ -5,7 +5,7 @@ import br.com.fundatec.fundatecheroesti21.login.data.repositoty.LoginRepository
 class UserUseCase {
     private val repository by lazy { LoginRepository() }
 
-    suspend fun createUser(name:String,email: String, password: String): Boolean {
-        return repository.createUser(name=name,email = email, password = password)
+    suspend fun createUser(name: String, email: String, password: String): Boolean {
+        return repository.createUser(name = name, email = email, password = password)
     }
 }

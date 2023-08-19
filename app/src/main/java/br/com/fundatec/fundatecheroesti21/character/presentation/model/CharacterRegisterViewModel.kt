@@ -16,7 +16,15 @@ class CharacterRegisterViewModel : ViewModel() {
     private val viewState = MutableLiveData<CharacterViewState>()
     private val repository by lazy { CharacterRepository() }
     val state: LiveData<CharacterViewState> = viewState
-    fun validateInputs(name: String?, description: String?,image : String?,universeType : String?,characterType:String?, age: String?, birth_date: String?) {
+    fun validateInputs(
+        name: String?,
+        description: String?,
+        image: String?,
+        universeType: String?,
+        characterType: String?,
+        age: String?,
+        birth_date: String?
+    ) {
         var patternAge = Pattern.compile("^(0|[1-9][0-9]*)\$")
         var matcherAge = patternAge.matcher(age)
 
@@ -60,22 +68,30 @@ class CharacterRegisterViewModel : ViewModel() {
             return
         }
 
-        if(image.isNullOrBlank()){
+        if (image.isNullOrBlank()) {
             viewState.value = CharacterViewState.ShowImageError
         }
 
-        if(universeType.isNullOrBlank()){
+        if (universeType.isNullOrBlank()) {
             viewState.value = CharacterViewState.ShowMessageError
         }
 
-        if(characterType.isNullOrBlank()){
+        if (characterType.isNullOrBlank()) {
             viewState.value = CharacterViewState.ShowMessageError
         }
 
-        createCharacter(name, description,image,universeType,characterType, age, birth_date)
+        createCharacter(name, description, image, universeType, characterType, age, birth_date)
     }
 
-    fun createCharacter(name: String?, description: String?,image: String?,universeType : String?,characterType:String?, age: String?, birthday: String?) {
+    fun createCharacter(
+        name: String?,
+        description: String?,
+        image: String?,
+        universeType: String?,
+        characterType: String?,
+        age: String?,
+        birthday: String?
+    ) {
         viewModelScope.launch {
             try {
                 val character = CharacterRequest(
@@ -85,7 +101,7 @@ class CharacterRegisterViewModel : ViewModel() {
                     universeType = universeType.toString().uppercase(),
                     characterType = characterType.toString().uppercase(),
                     age = age?.toIntOrNull() ?: 0,
-                    birthday = birthday?: ""
+                    birthday = birthday ?: ""
                 )
                 val response = repository.createCharacter(character)
 
